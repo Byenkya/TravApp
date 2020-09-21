@@ -1,0 +1,338 @@
+<! DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bus Application</title>
+
+        <script type="text/javascript" src="./static/js/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+        <script type="text/javascript" src="./static/js/popper.min.js"></script>
+        <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./static/js/mdb.min.js"></script>
+        <script src="./static/js/muuri.min.js"></script>
+
+        <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"> -->
+        <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./static/css/mdb.min.css">
+        <link rel="stylesheet" href="./static/css/style.css">
+    </head>
+
+    <body>
+        <section>
+            <!--Navbar -->
+            <nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark">
+                <div>
+                    <img alt="not found" class="rounded-circle" src="./static/images/roads.jpg" height="50px;" width="50px;">
+                    <a class="navbar-brand" href="#">TravApp</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+                    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#"><i class="fa fa-sign-out nav-link">Logout</i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+
+        <section> 
+            <ul class="nav nav-tabs nav-fill mb-3 m-2" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active font-weight-bold" id="traveller-home-tab" data-toggle="pill" href="#traveller-home" role="tab" aria-controls="traveller-home" aria-selected="true">Buses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" id="jt-tab" data-toggle="pill" href="#jt" role="tab" aria-controls="jt" aria-selected="false">My Account</a>
+                </li>
+            </ul>
+
+            <div class="tab-content m-2" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="traveller-home" role="tabpanel" aria-labelledby="traveller-home-tab">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-header">
+                                        Available Buses
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <a href="#" style="color: #000000;"><i class="fa fa-bus"></i>  Gaaga Bus</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-light mb-3" style="max-width: 100%;">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-md-12">Bus Structure</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <div align="center">
+                                                <div id="grid" class="grid border"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="row">
+                                            <div class="col-md-4"><button class="btn-outline-success">Booked</button></div>
+                                            <div class="col-md-4"> <button class="btn-outline-secondary">Reserved</button></div>
+                                            <div class="col-md-4"><button class="btn-outline-dark">Available</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="createBookingModal" tabindex="-1">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">New Booking</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                
+                                            <div id="createBookingPatch" class="modal-body">
+                                                <h4 id="seat">Seat</h4>
+                                                <hr/>
+                                                <form>
+                                                    <div class="form-group">
+                                                      <label for="passengerName">Passenger Names</label>
+                                                      <input type="text" class="form-control" id="passengerName" aria-describedby="nameHelp" placeholder="Passenger Telephone">
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label for="passengerTel">Passenger Telephone</label>
+                                                      <input type="text" class="form-control" id="passengerTel" placeholder="Passenger Telephone">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="selectAmount">Select Fare</label>
+                                                        <select class="form-control" id="selectAmount">
+                                                          <option>Karuma(25000)</option>
+                                                          <option>Kampala(45000)</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group form-check">
+                                                      <input type="checkbox" class="form-check-input" id="paid">
+                                                      <label class="form-check-label" for="paid">Paid?</label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </form>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card" style="width: 100%;">
+                                    <div class="card-header">
+                                        Bus details
+                                    </div>
+                                    <div class="card-body">
+                                        <h4><span class="fa fa-bus"></span> UBB 135UG</h4>
+                                        <hr>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Capacity</td><td> 65 seats</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Status</td><td>Ordinary</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Departure</td><td>2020-09-19 08:30:00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Main Journey</td><td>Arua to Kampala</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br/>
+                                        <h4><span class="fa fa-road"></span> Journeys and Transport fees</h4>
+                                        <hr/>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Arua to Karuma</td><td>25000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Arua to Kampala</td><td>35000</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br/>
+                                        <h4><span class="fa fa-book"></span> Booking Details</h4>
+                                        <hr/>
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <button id="bookingDetails" data-toggle="modal" data-target=".bookingDetails"><b>View booking details</b></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="modal fade bookingDetails" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-xl">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Booking Details</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div id="bookTable" class="modal-body">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">Seat</th>
+                                                                    <th scope="col">Passenger</th>
+                                                                    <th scope="col">Payment</th>
+                                                                </tr>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">1</th>
+                                                                        <td>35</td>
+                                                                        <td>Mutesi Wilbrod <small><b>0775032096</b></small></td>
+                                                                        <td>Paid</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="jt" role="tabpanel" aria-labelledby="jt-tab">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card" style="width:100%;">
+                                    <div class="card-header">
+                                        Account Information
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="outline m-1 p-2">
+                                            <input type="text" class="form-control m-1" id="firstName" value="Charles" readonly>
+                                            <input type="text" class="form-control m-1" id="surname" value="Olet" readonly>
+                                            <input type="text" class="form-control m-1" id="email" value="char1itrix@gmail.com" readonly>
+                                            <input type="text" class="form-control m-1" id="telephone" value="+256775032096" readonly>
+                                            <br/>
+                                            <label>Account Information</label>
+                                            <div class="dropdown-divider"></div>
+                                            <br/>
+                                            <input type="text" class="form-control m-1" id="username" value="char1itrix@gmail.com" readonly>
+                                            <input type="password" class="form-control m-1" id="username" value="j.byenkya" readonly>
+                                            <div class="m-1 p-2">
+                                                <button type="submit" class="btn btn-dark btn-lg btn-block font-weight-bold p-2" data-toggle="modal" data-target="#updateModal">Update Information</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Update Info</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                <label for="InputFirstName">First name</label>
+                                                <input type="text" class="form-control" id="InputFirstName" value="Charles">
+                                                </div>
+                                                <div class="form-group">
+                                                <label for="inputSurname">Surname</label>
+                                                <input type="text" class="form-control" id="inputSurname" value="Olet">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail">Email</label>
+                                                    <input type="email" class="form-control" id="inputEmail" value="char1itrix@gmail.com">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputTelephone">Telephone</label>
+                                                    <input type="text" class="form-control" id="inputTelephone" value="+256775032096">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Change Password
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="outline m-1 p-2">
+                                                <div class="form-group">
+                                                    <label for="currentPassword">Current password</label>
+                                                    <input type="password" class="form-control" id="currentPassword" placeholder="current password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="newPassword">New password</label>
+                                                    <input type="password" class="form-control" id="newPassword" placeholder="new password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="confirmPassword">Confirm password</label>
+                                                    <input type="password" class="form-control" id="confirmPassword" placeholder="confirm password">
+                                                </div>
+                                            </div>
+                                            <div class="p-2">
+                                                <button type="submit" class="btn btn-dark btn-lg btn-block font-weight-bold p-2">Change password</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <footer class="page-footer font-small black">
+                <!-- copyright -->
+                <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                    <a href="www.amobitltd.com">Amobit Technologies</a>
+                </div>
+            </footer>
+        </section>
+    </body>
+    <script>require('./renderer');</script>
+    <script>
+        // display booking modal for a particular seat.
+        $('#createBookingModal').on('show.bs.modal', function(event){
+            var button = $(event.relatedTarget) 
+            var seat_number = button[0].innerText
+            var modal = $(this)
+            document.getElementById("seat").innerText = "Seat " + seat_number
+            
+        });
+    </script>
+</html>

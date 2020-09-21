@@ -1,0 +1,20 @@
+{
+  "name": "traveller_desktop_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./app/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Byenkya Joshua Aaron",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "electron": "^2.0.4",
+    "express": "^4.17.1",
+    "mdbootstrap": "^4.19.1",
+    "socket.io": "^2.3.0"
+  }
+}

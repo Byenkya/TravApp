@@ -1,0 +1,95 @@
+<! DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bus Application</title>
+
+        <script type="text/javascript" src="./static/js/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+        <script type="text/javascript" src="./static/js/popper.min.js"></script>
+        <script type="text/javascript" src="./static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./static/js/mdb.min.js"></script>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./static/css/mdb.min.css">
+        <link rel="stylesheet" href="./static/css/style.css">
+    </head>
+
+    <body>
+        <section>
+            <!--Navbar -->
+            <nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">TravApp</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+                    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+
+        <section style="height: 100%;display: flex;align-items: center;justify-content: center;background-image: url('./static/images/roads.jpg')"> 
+            <div style="width: 50%; height: 55%;" class="card mx-auto">
+                <h5 class="card-header elegant-color-dark white-text text-center py-4">
+                    <strong>Sign in</strong>
+                </h5>
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form>
+                        <!-- Material input email -->
+                        <div class="md-form">
+                          <i class="fa fa-envelope prefix grey-text"></i>
+                          <input type="email" id="materialFormCardEmailEx" class="form-control">
+                          <label for="materialFormCardEmailEx" class="font-weight-light">Email</label>
+                        </div>
+                  
+                        <!-- Material input password -->
+                        <div class="md-form">
+                          <i class="fa fa-lock prefix grey-text"></i>
+                          <input type="password" id="materialFormCardPasswordEx" class="form-control">
+                          <label for="materialFormCardPasswordEx" class="font-weight-light">Your password</label>
+                        </div>
+
+                        <p class="font-small grey-text d-flex justify-content-end">Forgot 
+                            <a href="#" class="dark-grey-text ml-1 font-weight-bold"> Password?</a>
+                        </p>
+                  
+                        <div class="text-center py-4 mt-3">
+                          <button class="btn btn-grey btn-rounded z-depth-1a" type="submit">Signin</button>
+                        </div>
+                      </form>
+                    <!-- Form -->
+
+                </div>
+
+            </div>
+
+            </div>
+        </section>
+
+        <section>
+            <footer class="page-footer font-small black">
+                <!-- copyright -->
+                <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                    <a href="www.amobitltd.com">Amobit Technologies</a>
+                </div>
+            </footer>
+        </section>
+    </body>
+</html>
